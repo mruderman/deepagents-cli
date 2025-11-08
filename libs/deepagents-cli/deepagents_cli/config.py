@@ -114,6 +114,11 @@ def create_model():
         export OPENAI_MODEL=glm-4.6
         export OPENAI_BASE_URL=https://api.z.ai/api/coding/paas/v4
 
+        # Using Kimi K2-Thinking from Moonshot AI (OpenAI-compatible, for agentic tasks)
+        export OPENAI_API_KEY=your_moonshot_api_key
+        export OPENAI_MODEL=kimi-k2-thinking
+        export OPENAI_BASE_URL=https://api.moonshot.ai/v1
+
         # Using other OpenAI-compatible providers
         export OPENAI_API_KEY=your_api_key
         export OPENAI_MODEL=your_model_name
@@ -166,9 +171,9 @@ def create_model():
     console.print("\nPlease set one of the following environment variables:")
     console.print("  - OPENAI_API_KEY     (for OpenAI models like gpt-5-mini)")
     console.print("  - ANTHROPIC_API_KEY  (for Claude models)")
-    console.print("\n[bold]For OpenAI-compatible providers (e.g., GLM-4.6):[/bold]")
+    console.print("\n[bold]For OpenAI-compatible providers (e.g., GLM-4.6, Kimi K2):[/bold]")
     console.print("  export OPENAI_API_KEY=your_api_key")
-    console.print("  export OPENAI_MODEL=glm-4.6")
+    console.print("  export OPENAI_MODEL=glm-4.6  # or kimi-k2-thinking")
     console.print("  export OPENAI_BASE_URL=https://api.z.ai/api/coding/paas/v4")
     console.print("\n[bold]For Anthropic-compatible providers (e.g., MiniMax M2):[/bold]")
     console.print("  export ANTHROPIC_API_KEY=your_api_key")

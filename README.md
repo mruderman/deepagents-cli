@@ -38,6 +38,7 @@ poetry add deepagents
 **Compatible APIs:**
 - MiniMax M2 (via Anthropic-compatible API)
 - GLM-4.6 from Z.AI (via OpenAI-compatible API)
+- Kimi K2-Thinking from Moonshot AI (via OpenAI-compatible API)
 - OpenRouter (via OpenAI-compatible API)
 - Any provider with OpenAI or Anthropic-compatible endpoints
 
@@ -100,6 +101,38 @@ export OPENAI_BASE_URL=https://api.z.ai/api/paas/v4/
 
 Get your API key from [Z.AI API Keys Page](https://z.ai/manage-apikey/apikey-list).
 
+#### Using Kimi K2-Thinking from Moonshot AI (OpenAI-Compatible)
+
+Kimi K2-Thinking is a general-purpose agentic reasoning model with deep reasoning and multi-step tool use capabilities:
+
+**For Agentic Tasks (Recommended for deepagents-cli):**
+```bash
+export OPENAI_API_KEY=your_moonshot_api_key
+export OPENAI_MODEL=kimi-k2-thinking
+export OPENAI_BASE_URL=https://api.moonshot.ai/v1
+```
+
+**Model Options:**
+- `kimi-k2-thinking` - Agentic reasoning model with deep thinking (slower, more thorough)
+- `kimi-k2-thinking-turbo` - Faster version with 60-100 tokens/s output speed
+- `kimi-k2-turbo-preview` - Standard fast model (256K context)
+- `kimi-k2-0905-preview` - Stable version (256K context)
+
+**Important Notes for K2-Thinking:**
+- Set `temperature=1.0` for best performance (not the usual 0.7)
+- Recommended `max_tokens >= 16000` to capture full reasoning process
+- Model outputs `reasoning_content` field showing its thinking process
+- Excellent for complex, multi-step agentic tasks
+
+Get your API key from [Moonshot AI Platform](https://platform.moonshot.ai/console/api-keys).
+
+**Alternative: Anthropic-Compatible Endpoint**
+```bash
+export ANTHROPIC_API_KEY=your_moonshot_api_key
+export ANTHROPIC_MODEL=kimi-k2-thinking
+export ANTHROPIC_BASE_URL=https://api.moonshot.ai/anthropic
+```
+
 You can also add these to a `.env` file in your project root:
 
 ```env
@@ -112,6 +145,11 @@ ANTHROPIC_BASE_URL=https://api.minimax.io/anthropic
 OPENAI_API_KEY=your_zai_api_key
 OPENAI_MODEL=glm-4.6
 OPENAI_BASE_URL=https://api.z.ai/api/coding/paas/v4
+
+# .env example - Kimi K2-Thinking for agentic tasks
+OPENAI_API_KEY=your_moonshot_api_key
+OPENAI_MODEL=kimi-k2-thinking
+OPENAI_BASE_URL=https://api.moonshot.ai/v1
 ```
 
 ## Usage
